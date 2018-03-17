@@ -1,0 +1,30 @@
+.nav-wrapper {
+    background-color: #1CA79A;
+}
+.page-footer {
+    background-color: #1CA79A;
+    width: 100%;
+    margin: 0px;
+}
+
+.brand-logo {
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#footText {
+    margin-left: 20px;
+}
+
+
+
+.collection-header {
+    text-align: center;
+}

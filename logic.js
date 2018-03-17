@@ -1,16 +1,43 @@
+$(document).ready(function() {
+  $('#modal1').modal();
+});
+
 var config = {
-  apiKey: "AIzaSyBTHFUMra78azqRFd4FCHgHKuwgwveponA",
-  authDomain: "daytrippr-8e200.firebaseapp.com",
-  databaseURL: "https://daytrippr-8e200.firebaseio.com",
-  projectId: "daytrippr-8e200",
-  storageBucket: "daytrippr-8e200.appspot.com",
-  messagingSenderId: "138915316080"
-};
+    apiKey: "AIzaSyBTHFUMra78azqRFd4FCHgHKuwgwveponA",
+    authDomain: "daytrippr-8e200.firebaseapp.com",
+    databaseURL: "https://daytrippr-8e200.firebaseio.com",
+    projectId: "daytrippr-8e200",
+    storageBucket: "daytrippr-8e200.appspot.com",
+    messagingSenderId: "138915316080"
+  };
 firebase.initializeApp(config);
+
 var database= firebase.database();
 var zipcode
 var category
-var resultsNum
+
+var firstName = "";
+var lastName = "";
+var email = "";
+var zipCode = "";
+
+$(".modal-close").on("click", function() {
+    location.href = "your-day.html"
+  // Don't refresh the page!
+  event.preventDefault();
+
+  firstName = $("#first_name").val().trim();
+  lastName = $("#last_name").val().trim();
+  email = $("#email").val().trim();
+  zipCode = $("#zipcode").val().trim();
+
+  database.ref().push({
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    zipCode: zipCode,
+    
+  });
 
 
 function getPlacesInfo() {
@@ -42,8 +69,8 @@ function getEvents() {
 }   
 
 function getWeather() {
-  
-  var weatherQueryURL = "api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=949dca9cddf77db7c038faccb85305aa";
+    
+    var weatherQueryURL = "api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&appid=949dca9cddf77db7c038faccb85305aa";
 
   $.ajax({
     url: weatherQueryURL,
@@ -60,5 +87,9 @@ $(document).on("click","button", function () {
       var freeEvent= $("<li 'class=collection-item avatar'><img src='images/yuna.jpg'><span class='title'>Event</span><p>Cost <br>Place/Time</p><a class='secondary-content btn-floating right'><i class='material-icons'>add</i></a></li>")
       $("#free-div").append(freeEvent);
     }
+
+});
+
+
 
 });

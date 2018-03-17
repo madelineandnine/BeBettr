@@ -64,3 +64,12 @@ $(document).on("click","button", function () {
       }
 
 });
+
+
+// Adds Event to Footer When + Button is Clicked
+
+i.click(function(e) {
+  console.log(clicked);
+});
+
+//var yourDay=$("<div id=yourDay>")

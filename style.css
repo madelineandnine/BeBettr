@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+=======
+body {
+background-image: url("images/city-background.jpg");
+background-color: #cccccc; 
+background-size: cover;
+}
+
+.btn-large {
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 32px; 
+    width: 400px;
+    height: 80px; 
+    vertical-align: -webkit-baseline-middle; 
+    line-height: normal; 
+    left: 50%;
+    top: 50%;
+    margin-top: -15px;   
+    margin-left: -200px; 
+    position: fixed; 
+}
+
+>>>>>>> master
 .nav-wrapper {
     background-color: #1CA79A;
 }
@@ -6,18 +29,25 @@
     width: 100%;
     margin: 0px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 .brand-logo {
     margin-left: 20px;
     padding: 5px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 .wrapper {
     width: 90%;
     max-width: 960px;
     margin: 0 auto;
     margin-top: 30px;
 }
+<<<<<<< HEAD
 
 #footText {
     margin-left: 20px;
@@ -25,6 +55,11 @@
 
 
 
+=======
+#footText {
+    margin-left: 20px;
+}
+>>>>>>> master
 .collection-header {
     text-align: center;
 }

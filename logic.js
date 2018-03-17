@@ -21,6 +21,7 @@ var email = "";
 var zipCode = "";
 
 $(".modal-close").on("click", function() {
+    location.href = "your-day.html"
   // Don't refresh the page!
   event.preventDefault();
 

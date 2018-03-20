@@ -27,36 +27,32 @@
 <div class="row"> <!-- Main Content Starts Here -->
 
   <div class="col s4"> <!-- First Column; Free-ish Events -->
-      <ul class="collection with-header" id="free-div">
-          <li class="collection-header"><h4>$-$$</h4></li>
-          
-          
+
+      <ul class="collection with-header" id="free">
+ <!--         <li class="collection-header"><h4>$-$$</h4></li>
+
           <li class="collection-item avatar">
-            <!-- Can we pull images from the api?? -->
             <img src="images/yuna.jpg" alt="image" class="circle">
-            <span class="title">Event</span>
+            <span class="title"></span>
             <p>Cost <br>
                Place/Time
             </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
           </li>
           
           
           <li class="collection-item avatar">
              <i class="material-icons circle black">event</i>
-            <span class="title">Event</span>
+            <span class="title"></span>
             <p>Cost <br>
                Place/Time
             </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
           </li>
           <li class="collection-item avatar">
               <i class="material-icons circle black">event</i>
-            <span class="title">Event</span>
+            <span class="title"></span>
             <p>Cost <br>
                Place/Time
             </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
           </li>
           <li class="collection-item avatar">
             <i class="material-icons circle black">event</i>
@@ -64,22 +60,19 @@
             <p>Cost <br>
                Place/Time
             </p>
-             <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
-          </li>
+          </li>-->
       </ul> 
   </div>
   
   <div class="col s4"> <!-- Second Column; Affordable Events -->
-    <ul class="collection with-header">
-        <li class="collection-header"><h4>$$-$$$</h4></li>
+    <ul class="collection with-header" id="cheap">
+<!--        <li class="collection-header"><h4>$$-$$$</h4></li>
         <li class="collection-item avatar">
-          <!-- Can we pull images from the api?? -->
           <img src="images/yuna.jpg" alt="image" class="circle">
           <span class="title">Event</span>
           <p>Cost <br>
              Place/Time
           </p>
-          <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
         </li>
         <li class="collection-item avatar">
            <i class="material-icons circle black">event</i>
@@ -87,7 +80,6 @@
           <p>Cost <br>
              Place/Time
           </p>
-          <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
         </li>
         <li class="collection-item avatar">
             <i class="material-icons circle black">event</i>
@@ -95,30 +87,26 @@
           <p>Cost <br>
              Place/Time
           </p>
-          <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
         </li>
         <li class="collection-item avatar">
           <i class="material-icons circle black">event</i>
           <span class="title">Event</span>
           <p>Cost <br>
              Place/Time
-          </p>
-           <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
-        </li>
+          </p>>
+        </li> -->
     </ul> 
   </div>          
   
   <div class="col s4"><!-- Third Column; Pricey Events -->
-      <ul class="collection with-header">
-          <li class="collection-header"><h4>$$$-$$$$</h4></li>
+      <ul class="collection with-header" id="pricey"> 
+ <!--         <li class="collection-header"><h4>$$$-$$$$</h4></li>
           <li class="collection-item avatar">
-            <!-- Can we pull images from the api?? -->
             <img src="images/yuna.jpg" alt="image" class="circle">
             <span class="title">Event</span>
             <p>Cost <br>
                Place/Time
             </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
           </li>
           <li class="collection-item avatar">
              <i class="material-icons circle black">event</i>
@@ -126,15 +114,13 @@
             <p>Cost <br>
                Place/Time
             </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
           </li>
           <li class="collection-item avatar">
               <i class="material-icons circle black">event</i>
             <span class="title">Event</span>
             <p>Cost <br>
                Place/Time
-            </p>
-            <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
+            </p>>
           </li>
           <li class="collection-item avatar">
             <i class="material-icons circle black">event</i>
@@ -142,34 +128,41 @@
             <p>Cost <br>
                Place/Time
             </p>
-             <a class="secondary-content btn-floating right"><i class="material-icons">add</i></a>
-          </li>
+
+          </li> -->
       </ul> 
   </div>
           
 </div> <!-- End of .container -->
 
 
-<footer class="page-footer">
+<footer class="page-footer"> <!-- Footer Starts Here -->
   <div class="container">
-    
+
     <div class="row">
       <div class="col l12 s12">
         <div id="footerText">
-        <h5 class="white-text">Your Day</h5>
+        <h5 class="white-text left-align">Your Day</h5>
         <div class="divider white"></div>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <div id="yourDay"></div>
+       <!-- <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
       </div>
     </div>
-  </div>
-  <div class="footer-copyright center-align"></div>
+
 </footer>
+</div>
       
 
+
+ <!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
 <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     
 <script src="logic.js"></script>   
+
 
 </body>
 </html>

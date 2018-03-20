@@ -1,7 +1,9 @@
 body {
 background-image: url("images/city-background.jpg");
+width: 100%; 
 background-color: #cccccc; 
 background-size: cover;
+
 }
 
 .btn-large {

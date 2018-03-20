@@ -27,6 +27,7 @@ background-size: cover;
     background-color: #1CA79A;
     width: 100%;
     margin: 0px;
+    padding: 10px;
 }
 .brand-logo {
     margin-left: 20px;
@@ -38,9 +39,13 @@ background-size: cover;
     margin: 0 auto;
     margin-top: 30px;
 }
-#footText {
-    margin-left: 20px;
+
+.container {
+    width: 70%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 .collection-header {
     text-align: center;
 }

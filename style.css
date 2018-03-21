@@ -6,6 +6,11 @@ background-size: cover;
 
 }
 
+.brand-logo {
+    font-family: 'Hammersmith One', sans-serif;
+
+}
+
 .btn-large {
     font-family: 'Hammersmith One', sans-serif;
     font-size: 32px; 

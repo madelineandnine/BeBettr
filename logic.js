@@ -1,7 +1,21 @@
 $(document).ready(function () {
   $('#modal1').modal();
+  $('#modal2').modal();
 });
 
+
+
+$('.modal-action').on('click', function () { 
+  var modalcontent2 = $('#modal2');
+  var modalcontent3 = $('#modal3');
+  var modalcontent4 = $('#modal4')
+  $('#events').append(modalcontent2);
+  $("#events").append(modalcontent3);
+  $("#events").append(modalcontent4);
+});
+  
+
+  
 var config = {
   apiKey: "AIzaSyBTHFUMra78azqRFd4FCHgHKuwgwveponA",
   authDomain: "daytrippr-8e200.firebaseapp.com",
@@ -10,6 +24,7 @@ var config = {
   storageBucket: "daytrippr-8e200.appspot.com",
   messagingSenderId: "138915316080"
 };
+
 firebase.initializeApp(config);
 
 var database = firebase.database();

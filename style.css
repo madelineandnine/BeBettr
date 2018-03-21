@@ -49,3 +49,32 @@ background-size: cover;
 .collection-header {
     text-align: center;
 }
+
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle,.collection .collection-item.avatar :not(.circle-clipper)>.circle {
+    position:absolute; 
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    left:15px; 
+    display:inline-block; 
+    vertical-align:middle; 
+}
+
+
+.collection .collection-item.avatar {
+    min-height: 125px;
+    padding-left: 72px;
+    position: relative;
+}
+
+
+.collection .collection-item.avatar p {
+    margin-left: 55px;
+    margin-top: 15px;
+}
+
+
+.modal h4 {
+   margin-top:10px;
+}

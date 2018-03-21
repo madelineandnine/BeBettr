@@ -8,14 +8,16 @@
      <!--Import Google Icon Font-->
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <!--Import materialize.css-->
-     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Your Day</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
 <nav> <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">DayTrippr</a>
+      <div class="weather"></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="index.html">Home</a></li>
       </ul>
@@ -226,10 +228,7 @@
 </footer>
 </div>
       
-
-
- <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="logic.js"></script>
 

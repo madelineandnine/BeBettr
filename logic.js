@@ -28,16 +28,17 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var zipcode
+
 var category
 
 var firstName = "";
 var lastName = "";
 var email = "";
 var zipCode = "";
+var temperature; 
 
 $(".modal-close").on("click", function () {
-  location.href = "your-day.html"
+
   // Don't refresh the page!
   event.preventDefault();
 
@@ -46,14 +47,54 @@ $(".modal-close").on("click", function () {
   email = $("#email").val().trim();
   zipCode = $("#zipcode").val().trim();
 
-  database.ref().push({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    zipCode: zipCode,
+  console.log(firstName);
+  console.log(lastName); 
+  console.log(email); 
+  console.log(zipCode); 
+
+  getWeather();
+  
+  getEvents();
+ // location.href = "your-day.html"
+
+
+});
+
+
+function getWeather() {
+
+  var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=949dca9cddf77db7c038faccb85305aa";
+  console.log(weatherQueryURL);
+
+  $.ajax({
+    url: weatherQueryURL,
+    method: "GET"
+  }).then(function (response) {
+    
+    console.log(response);
+    var todayWeather = response.main.temp;
+
+    database.ref().push({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      zipCode: zipCode,
+      temperature: response.main.temp,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+    }).then(function() {
+      location.href = "your-day.html"
+    });
+
+    
+    $(".weather").text("Temperature (F) " + temperature);
 
   });
-});
+}
+
+    
+
+    var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
 
 
   function getPlacesInfo() {
@@ -61,42 +102,58 @@ $(".modal-close").on("click", function () {
     var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
 
     $.ajax({
-      url: placesQueryURL,
-      method: "GET"
-    }).then(function (response) {
-      console.log(response);
-
-    });
-  }
-
-
-
-  function getEvents() {
-
-    var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
-
-    $.ajax({
       url: eventsQueryURL,
       method: "GET"
     }).then(function (response) {
       console.log(response);
-
+      var $response = $(response);
+      $response.find('event').each(function(index, event) {
+        var $event = $(event);
+        var title = $event.find('title').text();
+        var description = $event.find('description').html();
+        var startTime = $event.find("start_time").text();
+        
+      })
     });
   }
 
-  function getWeather() {
 
-    var weatherQueryURL = "api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=949dca9cddf77db7c038faccb85305aa";
-
+  
+  function getEvents() {
+    var zip = $("#zipcode").val();
+    var eventsQueryURL = "https://api.eventful.com/rest/events/search?q="+zip+"&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
+debugger
     $.ajax({
-      url: weatherQueryURL,
-      method: "GET"
+      url: eventsQueryURL,
+      method: "GET",
+      dataType: 'JSON'
     }).then(function (response) {
       console.log(response);
+      var $response = $(response);
+      $response.find('event').each(function(index, event) {
+        var $event = $(event);
+        var title = $event.title.text();
+        var description = $event.description.html();
+        var start = $event.start_time.text();
 
+        var eventDiv = $("<div>");
+          for (i = 0; i < 25; i++) {
+            var eventTitle = $("<span>").text(title);
+            $(eventDiv).append(eventTitle);
+            var eventDescription = $("<span>").text(description);
+            $(eventDiv).append(eventDescription);
+            var eventStart = $("<span>").text(start);
+            $(eventDiv).append(eventStart);
+          }
+          $("#free").html(eventDiv);
+          
+          
+        
+      })
     });
   }
-
+  
+  
 
 
 

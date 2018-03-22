@@ -11,6 +11,14 @@ background-size: cover;
 
 }
 
+h4, p {
+    color: black;
+    background-color: white;
+}
+
+.divider {
+    margin-bottom: 10px;
+}
 .btn-large {
     font-family: 'Hammersmith One', sans-serif;
     font-size: 32px; 
@@ -51,6 +59,12 @@ background-size: cover;
     margin-right: 10px;
 }
 
+/* Collection Styling */
+.collection {
+    display: inline-block;
+    margin: 0;
+}
+
 .collection-header {
     text-align: center;
 }
@@ -82,4 +96,8 @@ background-size: cover;
 
 .modal h4 {
    margin-top:10px;
+}
+
+#modal2content {
+    padding: 0;
 }

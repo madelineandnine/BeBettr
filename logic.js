@@ -4,12 +4,17 @@ $(document).ready(function () {
 });
 
 
+$("#your-day").hide();
+
+
+
 
 $('.modal-action').on('click', function () { 
-  var modalcontent2 = $('#modal2');
+  var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
-  var modalcontent4 = $('#modal4')
-  $('#events').append(modalcontent2);
+  var modalcontent4 = $('#modal4');
+  
+  $('#events').append(modal2content);
   $("#events").append(modalcontent3);
   $("#events").append(modalcontent4);
 });
@@ -52,12 +57,22 @@ $(".modal-close").on("click", function () {
   console.log(email); 
   console.log(zipCode); 
 
-  getWeather();
+  // getWeather();
   
-  getEvents();
+  // getEvents();
+
+  
+  
  // location.href = "your-day.html"
 
 
+});
+
+$("#submit-button").on("click",function(){
+
+  $("#start-button").hide();
+  
+  $("#your-day").show();
 });
 
 

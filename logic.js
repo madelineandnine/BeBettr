@@ -4,6 +4,10 @@ $(document).ready(function () {
 });
 
 
+$("#your-day").hide();
+
+
+
 
 $('.modal-action').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
@@ -53,12 +57,22 @@ $(".modal-close").on("click", function () {
   console.log(email); 
   console.log(zipCode); 
 
-  getWeather();
+  // getWeather();
   
-  getEvents();
+  // getEvents();
+
+  
+  
  // location.href = "your-day.html"
 
 
+});
+
+$("#submit-button").on("click",function(){
+
+  $("#start-button").hide();
+  
+  $("#your-day").show();
 });
 
 

@@ -35,6 +35,8 @@
  <!-- Modal Structure -->
  <div id="modal2" class="modal">
     <div class="modal-content">
+    <div id="modal2content">
+      <ul class="collection">
         <li class="collection-header"><h4>An Event!</h4></li>
         <li class="collection-item avatar">
           <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
@@ -43,6 +45,8 @@
              Place/Time
           </p>
         </li>
+      </ul>
+    </div>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
@@ -87,8 +91,9 @@
  <button onclick="$('#modal3').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
 
  <!-- Modal Structure -->
- <div id="modal3" class="modal">
-    <div class="modal-content">
+ <div class="modal">
+    <div class="modal-content" id="modal3content">
+      <ul class="collection">
         <li class="collection-header"><h4>An Event!</h4></li>
         <li class="collection-item avatar">
           <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
@@ -97,6 +102,7 @@
              Place/Time
           </p>
         </li>
+      </ul>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
@@ -141,8 +147,9 @@
     <button onclick="$('#modal4').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
 
     <!-- Modal Structure -->
-    <div id="modal4" class="modal">
-      <div class="modal-content">
+    <div class="modal">
+      <div class="modal-content"  id="modal4content">
+      <ul>
         <li class="collection-header"><h4>An Event!</h4></li>
         <li class="collection-item avatar">
           <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
@@ -151,6 +158,7 @@
              Place/Time
           </p>
         </li>
+      </ul>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
@@ -196,35 +204,18 @@
 <footer class="page-footer"> <!-- Footer Starts Here -->
   <div class="container">
 
-    <div class="row">
-      <div class="col l12 s12">
-        <div id="footerText">
-        <h5 class="white-text left-align">Your Day</h5>
-        <div class="divider white"></div>
-        <div id="yourDay"></div>
-        <div id="events"></div>
+      <div class="row">
+          <div class="col l12 s12">
+            <div id="footerText">
+            <h5 class="white-text left-align">Your Day</h5>
+            <div class="divider white"></div>
+            <div id="yourDay"></div>
+                <ul id="events" class="collection">
+                </ul>
+          </div>
+        </div>    
 
-
-    <!-- Modal Structure -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-          <li class="collection-header"><h4>An Event!</h4></li>
-          <li class="collection-item avatar">
-            <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-            <span class="title"></span>
-            <p>Cost <br>
-               Place/Time
-            </p>
-          </li>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
-      </div>
-    </div>
-
-    </div>
-    </div>
-
+  </div>
 </footer>
 </div>
       

@@ -6,10 +6,11 @@ $(document).ready(function () {
 
 
 $('.modal-action').on('click', function () { 
-  var modalcontent2 = $('#modal2');
+  var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
-  var modalcontent4 = $('#modal4')
-  $('#events').append(modalcontent2);
+  var modalcontent4 = $('#modal4');
+  
+  $('#events').append(modal2content);
   $("#events").append(modalcontent3);
   $("#events").append(modalcontent4);
 });

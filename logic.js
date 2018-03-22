@@ -94,6 +94,7 @@ function getWeather() {
 
     
 
+    var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
 
 
   function getPlacesInfo() {
@@ -101,11 +102,18 @@ function getWeather() {
     var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
 
     $.ajax({
-      url: placesQueryURL,
+      url: eventsQueryURL,
       method: "GET"
     }).then(function (response) {
       console.log(response);
-
+      var $response = $(response);
+      $response.find('event').each(function(index, event) {
+        var $event = $(event);
+        var title = $event.find('title').text();
+        var description = $event.find('description').html();
+        var startTime = $event.find("start_time").text();
+        
+      })
     });
   }
 

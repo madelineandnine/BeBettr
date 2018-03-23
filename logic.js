@@ -9,7 +9,7 @@ $("#your-day").hide();
 
 
 
-$('.modal-action').on('click', function () { 
+$('.add-event').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');

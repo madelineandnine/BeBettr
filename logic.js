@@ -4,12 +4,13 @@ $(document).ready(function () {
 });
 
 
-$("#your-day").hide();
+$('footer').hide();
+$('header').hide();
+$('main').hide();
 
 
 
-
-$('.modal-action').on('click', function () { 
+$('.add-event').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');
@@ -69,10 +70,12 @@ $(".modal-close").on("click", function () {
 });
 
 $("#submit-button").on("click",function(){
-
   $("#start-button").hide();
-  
-  $("#your-day").show();
+  $("#logo").hide();
+
+  $('header').show();
+  $("footer").show();
+  $('main').show()
 });
 
 

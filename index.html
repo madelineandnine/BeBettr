@@ -17,8 +17,10 @@
 </head>
 
 <body>
+  
   <div id="logo">
-    <!--add logo image-->
+    <h2>DayTrippr</h2>
+   <!-- <img src="images/daytrippr-logo.png" alt="image"> -->
   </div>
 
   <!--Main Button-->
@@ -68,6 +70,7 @@
     </div>
   </div>
 
+  <header>
   <div id="your-day">
     <nav>
       <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
@@ -80,9 +83,10 @@
           </li>
         </ul>
       </div>
-    </nav>
-    <!-- Navbar ends here -->
+    </nav> <!-- Navbar ends here -->
+  </header>
 
+  <main>
     <div class="wrapper">
       <!-- Beginning of .page-wrapper -->
       <div class="row">
@@ -96,22 +100,25 @@
 
             <!-- Modal Structure -->
             <div id="modal2" class="modal">
-              <div class="modal-content">
-                <li class="collection-header">
-                  <h4>An Event!</h4>
-                </li>
-                <li class="collection-item avatar">
-                  <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                  <span class="title"></span>
-                  <p>Cost
-                    <br> Place/Time
-                  </p>
-                </li>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
-              </div>
+              <div class="modal-content" id="modal2content">
+                  <ul class="collection">
+                    <li class="collection-header">
+                      <h4>An Event!</h4>
+                    </li>
+                    <li class="collection-item avatar">
+                      <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
+                      <span class="title"></span>
+                      <p>Cost
+                      <br> Place/Time
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
+                </div>
             </div>
+ 
             <!-- <li class="collection-header"><h4>$-$$</h4></li>
             <li class="collection-item avatar">
               <img src="images/yuna.jpg" alt="image" class="circle">
@@ -151,24 +158,24 @@
             <!-- Modal Trigger -->
             <button onclick="$('#modal3').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
 
-            <!-- Modal Structure -->
-            <div id="modal3" class="modal">
-              <div class="modal-content">
-                <li class="collection-header">
-                  <h4>An Event!</h4>
-                </li>
+          <!-- Modal Structure -->
+          <div class="modal">
+            <div class="modal-content" id="modal3content">
+              <ul class="collection">
+                <li class="collection-header"><h4>An Event!</h4></li>
                 <li class="collection-item avatar">
                   <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
                   <span class="title"></span>
-                  <p>Cost
-                    <br> Place/Time
+                  <p>Cost <br>
+                    Place/Time
                   </p>
                 </li>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
-              </div>
+              </ul>
             </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
+            </div>
+          </div>
             <!--        <li class="collection-header"><h4>$$-$$$</h4></li>
           <li class="collection-item avatar">
             <img src="images/yuna.jpg" alt="image" class="circle">
@@ -207,25 +214,25 @@
 
             <!-- Modal Trigger -->
             <button onclick="$('#modal4').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
-
-            <!-- Modal Structure -->
-            <div id="modal4" class="modal">
-              <div class="modal-content">
-                <li class="collection-header">
-                  <h4>An Event!</h4>
-                </li>
-                <li class="collection-item avatar">
-                  <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                  <span class="title"></span>
-                  <p>Cost
-                    <br> Place/Time
-                  </p>
-                </li>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
-              </div>
+            
+          <!-- Modal Structure -->
+          <div class="modal">
+            <div class="modal-content"  id="modal4content">
+            <ul>
+              <li class="collection-header"><h4>An Event!</h4></li>
+              <li class="collection-item avatar">
+              <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
+              <span class="title"></span>
+              <p>Cost <br>
+                Place/Time
+              </p>
+              </li>
+            </ul>
             </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
+        </div>
+      </div>
 
             <!--         <li class="collection-header"><h4>$$$-$$$$</h4></li>
             <li class="collection-item avatar">
@@ -263,45 +270,24 @@
       </div>
     </div>
     <!-- End of .container -->
+  </main>
 
-
+  <div id="your-day">
     <footer class="page-footer">
       <!-- Footer Starts Here -->
       <div class="container">
-
-        <div class="row">
-          <div class="col l12 s12">
-            <div id="footerText">
+      <div class="row">
+        <div class="col l12 s12">
+          <div id="footerText">
               <h5 class="white-text left-align">Your Day</h5>
               <div class="divider white"></div>
-              <div id="yourDay"></div>
-              <div id="events"></div>
-
-
-              <!-- Modal Structure -->
-              <div id="modal2" class="modal">
-                <div class="modal-content">
-                  <li class="collection-header">
-                    <h4>An Event!</h4>
-                  </li>
-                  <li class="collection-item avatar">
-                    <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                    <span class="title"></span>
-                    <p>Cost
-                      <br> Place/Time
-                    </p>
-                  </li>
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Add Event</a>
-                </div>
-              </div>
-
-            </div>
+              <ul id="events" class="collection"></ul>
           </div>
         </div>
+       </div>
       </div>
     </footer>
+  </div>
   </div>
 
 

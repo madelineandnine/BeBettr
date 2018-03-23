@@ -4,8 +4,9 @@ $(document).ready(function () {
 });
 
 
-$("#your-day").hide();
-
+$('footer').hide();
+$('header').hide();
+$('main').hide();
 
 
 
@@ -69,10 +70,12 @@ $(".modal-close").on("click", function () {
 });
 
 $("#submit-button").on("click",function(){
-
   $("#start-button").hide();
-  
-  $("#your-day").show();
+  $("#logo").hide();
+
+  $('header').show();
+  $("footer").show();
+  $('main').show()
 });
 
 

@@ -1,6 +1,9 @@
 $(document).ready(function () {
   $('#modal1').modal();
   $('#modal2').modal();
+  $('.dropdown-trigger').dropdown();
+
+
 });
 
 
@@ -14,14 +17,14 @@ $('.add-event').on('click', function () {
   var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');
-  
+
   $('#events').append(modal2content);
   $("#events").append(modalcontent3);
   $("#events").append(modalcontent4);
 });
-  
 
-  
+
+
 var config = {
   apiKey: "AIzaSyBTHFUMra78azqRFd4FCHgHKuwgwveponA",
   authDomain: "daytrippr-8e200.firebaseapp.com",
@@ -35,13 +38,11 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var category
 
 var firstName = "";
 var lastName = "";
 var email = "";
-var zipCode = "";
-var temperature; 
+var zipCode = $("#zipcode").val().trim();
 
 $(".modal-close").on("click", function () {
 
@@ -54,25 +55,29 @@ $(".modal-close").on("click", function () {
   zipCode = $("#zipcode").val().trim();
 
   console.log(firstName);
-  console.log(lastName); 
-  console.log(email); 
-  console.log(zipCode); 
+  console.log(lastName);
+  console.log(email);
+  console.log(zipCode);
 
-  // getWeather();
-  
-  // getEvents();
 
-  
-  
- // location.href = "your-day.html"
+
 
 
 });
 
-$("#submit-button").on("click",function(){
   $("#start-button").hide();
   $("#logo").hide();
+$("#submit-button").on("click",function(){
 
+  database.ref().push({
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    zipCode: zipCode,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+  getWeather();
+  getEvents();
   $('header').show();
   $("footer").show();
   $('main').show()
@@ -81,98 +86,87 @@ $("#submit-button").on("click",function(){
 
 function getWeather() {
 
-  var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=949dca9cddf77db7c038faccb85305aa";
+  var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&units=imperial&appid=949dca9cddf77db7c038faccb85305aa";
   console.log(weatherQueryURL);
 
   $.ajax({
     url: weatherQueryURL,
     method: "GET"
   }).then(function (response) {
-    
+
     console.log(response);
-    var todayWeather = response.main.temp;
+    var todayWeatherdesc = response.weather[0].main;
+    var todayWeathertemp = response.main.temp;
+    var todayWeatherwind = response.wind.speed;
 
-    database.ref().push({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      zipCode: zipCode,
-      temperature: response.main.temp,
-      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
-    }).then(function() {
-      location.href = "your-day.html"
-    });
-
+    $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
     
-    $(".weather").text("Temperature (F) " + temperature);
+    $(".weather-desc").text("Description: " + todayWeatherdesc);
+  
+    $(".weather-wind").text("Wind: " + todayWeatherwind);
 
   });
 }
 
-    
-
-    var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
 
 
-  function getPlacesInfo() {
-
-    var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
-
-    $.ajax({
-      url: eventsQueryURL,
-      method: "GET"
-    }).then(function (response) {
-      console.log(response);
-      var $response = $(response);
-      $response.find('event').each(function(index, event) {
-        var $event = $(event);
-        var title = $event.find('title').text();
-        var description = $event.find('description').html();
-        var startTime = $event.find("start_time").text();
-        
-      })
-    });
-  }
+var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
 
 
-  
-  function getEvents() {
-    var zip = $("#zipcode").val();
-    var eventsQueryURL = "https://api.eventful.com/rest/events/search?q="+zip+"&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
-debugger
-    $.ajax({
-      url: eventsQueryURL,
-      method: "GET",
-      dataType: 'JSON'
-    }).then(function (response) {
-      console.log(response);
-      var $response = $(response);
-      $response.find('event').each(function(index, event) {
-        var $event = $(event);
-        var title = $event.title.text();
-        var description = $event.description.html();
-        var start = $event.start_time.text();
+function getPlacesInfo() {
 
-        var eventDiv = $("<div>");
-          for (i = 0; i < 25; i++) {
-            var eventTitle = $("<span>").text(title);
-            $(eventDiv).append(eventTitle);
-            var eventDescription = $("<span>").text(description);
-            $(eventDiv).append(eventDescription);
-            var eventStart = $("<span>").text(start);
-            $(eventDiv).append(eventStart);
-          }
-          $("#free").html(eventDiv);
-          
-          
-        
-      })
-    });
-  }
-  
-  
+  var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
+
+  $.ajax({
+    url: eventsQueryURL,
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+    var $response = $(response);
+    $response.find('event').each(function (index, event) {
+      var $event = $(event);
+      var title = $event.find('title').text();
+      var description = $event.find('description').html();
+      var startTime = $event.find("start_time").text();
+
+    })
+  });
+}
 
 
 
+function getEvents() {
+  var zip = $("#zipcode").val();
+  var eventsQueryURL = "https://api.eventful.com/rest/events/search?q=" + zip + "&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
 
+  $.ajax({
+    url: eventsQueryURL,
+    method: "GET",
+    dataType: 'JSON'
+  }).then(function (response) {
+    console.log(response);
+    var $response = $(response);
+    $response.find('event').each(function (index, event) {
+      var $event = $(event);
+      var title = $event.title.text();
+      var description = $event.description.html();
+      var start = $event.start_time.text();
+
+      var eventDiv = $("<div>");
+      for (i = 0; i < 25; i++) {
+        var eventTitle = $("<span>").text(title);
+        $(eventDiv).append(eventTitle);
+        var eventDescription = $("<span>").text(description);
+        $(eventDiv).append(eventDescription);
+        var eventStart = $("<span>").text(start);
+        $(eventDiv).append(eventStart);
+      }
+      $("#free").html(eventDiv);
+
+
+
+    })
+  });
+}

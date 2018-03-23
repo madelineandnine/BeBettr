@@ -134,4 +134,6 @@ h2 {
 #modal2content {
     padding: 0;
 }
-
+#weather {
+    padding: 5px; 
+}

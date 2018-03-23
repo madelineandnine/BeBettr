@@ -59,15 +59,21 @@ $(".modal-close").on("click", function () {
   console.log(email);
   console.log(zipCode);
 
+  // getWeather();
+  
+  // getEvents();
 
+  
+  
+ // location.href = "your-day.html"
 
-
+  $("#start-button").hide();
 
 });
 
-  $("#start-button").hide();
-  $("#logo").hide();
 $("#submit-button").on("click",function(){
+  $("#logo").hide();
+  $("#start-button").hide();
 
   database.ref().push({
     firstName: firstName,
@@ -123,7 +129,7 @@ function getPlacesInfo() {
     url: eventsQueryURL,
     method: "GET"
   }).then(function (response) {
-    console.log(response);
+    
     var $response = $(response);
     $response.find('event').each(function (index, event) {
       var $event = $(event);
@@ -135,6 +141,56 @@ function getPlacesInfo() {
   });
 }
 
+var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
+
+
+function getEvents() {
+  var zip = $("#zipcode").val();
+  var eventsQueryURL = "https://api.eventful.com/json/events/search?q=" + zip + "&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
+
+  $.ajax({
+    url: eventsQueryURL,
+    method: "GET",
+    // dataType: 'JSON'
+  }).then(function (response) {
+    
+    console.log(eventsQueryURL)
+    
+    console.log(JSON.parse(response))
+
+    var newResponse=JSON.parse(response);
+    console.log(newResponse.events)
+    
+     
+       for(i=0;i<newResponse.events.event.length;i++){
+         console.log(newResponse.events.event[i].title)
+       }
+     
+    // var $response = $(response);
+    // $response.find('event').each(function (index, event) {
+    //   var $event = $(event);
+    //   var title = $event.title.text();
+    //   var description = $event.description.html();
+    //   var start = $event.start_time.text();
+
+      // var eventDiv = $("<div>");
+      // for (i = 0; i < 25; i++) {
+      //   var eventTitle = $("<span>").text(title);
+      //   $(eventDiv).append(eventTitle);
+      //   var eventDescription = $("<span>").text(description);
+      //   $(eventDiv).append(eventDescription);
+      //   var eventStart = $("<span>").text(start);
+      //   $(eventDiv).append(eventStart);
+      // }
+      // $("#free").html(eventDiv);
+
+
+    
+    // })
+    
+  });
+  
+}
 
 
 function getEvents() {
@@ -166,7 +222,3 @@ function getEvents() {
       $("#free").html(eventDiv);
 
 
-
-    })
-  });
-}

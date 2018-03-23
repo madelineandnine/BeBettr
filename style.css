@@ -1,21 +1,54 @@
 body {
 background-image: url("images/city-background.jpg");
-width: 100%; 
-background-color: #cccccc; 
 background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+width: 100%; 
 
+background-color: #cccccc; 
+
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+    width: 80%;
+    max-width: 960px;
+    margin: 0 auto;
+    flex: 1 0 auto;
+  }
+
+/* Logo/ Logo Image Styling */
+.brand-logo {
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 .brand-logo {
-    font-family: 'Hammersmith One', sans-serif;
-
+    /* Must change for mobile repsonsivenss- no longer centered) */
+    margin-left: 20px;
+    padding: 5px;
 }
 
+#logo {
+    text-align: center;
+    margin-top: 175px; 
+}
+/* Font Styling */
 h4, p {
     color: black;
     background-color: white;
 }
 
+h2 {
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+    size: 5rem;
+    letter-spacing: 3px;
+}
+
+/* Buttons, Dividers, etc. Styling */
 .divider {
     margin-bottom: 10px;
 }
@@ -33,19 +66,13 @@ h4, p {
     position: fixed; 
 }
 
+/* Nav Styling */
 .nav-wrapper {
     background-color: #1CA79A;
 }
-.page-footer {
-    background-color: #1CA79A;
-    width: 100%;
-    margin: 0px;
-    padding: 10px;
-}
-.brand-logo {
-    margin-left: 20px;
-    padding: 5px;
-}
+
+
+/* Layout Styling */
 .wrapper {
     width: 90%;
     max-width: 960px;
@@ -53,16 +80,21 @@ h4, p {
     margin-top: 30px;
 }
 
-.container {
-    width: 70%;
-    margin-left: 10px;
-    margin-right: 10px;
+
+.page-footer {
+    background-color: #1CA79A;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
 }
+
+
 
 /* Collection Styling */
 .collection {
     display: inline-block;
     margin: 0;
+    border: 0px;
 }
 
 .collection-header {
@@ -94,10 +126,14 @@ h4, p {
 }
 
 
+/* Modal Styling */ 
 .modal h4 {
    margin-top:10px;
 }
 
 #modal2content {
     padding: 0;
+}
+#weather {
+    padding: 5px; 
 }

@@ -18,6 +18,8 @@ $('.add-event').on('click', function () {
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');
 
+  
+
   $('#events').append(modal2content);
   $("#events").append(modalcontent3);
   $("#events").append(modalcontent4);
@@ -108,61 +110,32 @@ function getWeather() {
     console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
     $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
-
     $(".weather-desc").text("Description: " + todayWeatherdesc);
-
     $(".weather-wind").text("Wind: " + todayWeatherwind);
 
+
+	if (todayWeathertemp < 40) {
+    $(".nav-wrapper").css("background", "#1CA79A");
+	} 
+	else {
+    $(".nav-wrapper").css("background", "#FFC719");
+    $(".page-footer").css("background", "#FFC719");
+  }
   });
 }
-
-
-
-var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
-
-
-function getPlacesInfo() {
-
-  var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
-
-  $.ajax({
-    url: eventsQueryURL,
-    method: "GET"
-  }).then(function (response) {
-
-    var $response = $(response);
-    $response.find('event').each(function (index, event) {
-      var $event = $(event);
-      var title = $event.find('title').text();
-      var description = $event.find('description').html();
-      var startTime = $event.find("start_time").text();
-
-    })
-  });
-}
-
-var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
 
 
 function getEvents() {
   var zip = $("#zipcode").val();
-  var eventsQueryURL = "https://api.eventful.com/json/events/search?q=" + zip + "&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
+  var eventsQueryURL = "https://api.eventful.com/json/events/search?q=" + zip + "&within=25&units=miles&date=Future&app_key=JJR9n4PwkWr8G2dp";
 
   $.ajax({
     url: eventsQueryURL,
     method: "GET",
     // dataType: 'JSON'
   }).then(function (response) {
-
-
-
     console.log(JSON.parse(response))
-
     var newResponse = JSON.parse(response);
-
-
-
-
 
     for (i = 0; i < newResponse.events.event.length; i++) {
       console.log(newResponse.events.event[i].id)
@@ -177,13 +150,8 @@ function getEvents() {
       }).then(function (response) {
         console.log(response)
         
-      
       });
-
-
-
-
-      var eventDiv = $("<div>");
+      var eventDiv = $("<div>").addClass('event-item')
 
       var eventTitle = $("<span>").text(newResponse.events.event[i].title);
       eventDiv.append(eventTitle);
@@ -191,45 +159,21 @@ function getEvents() {
       eventDiv.append(eventDescription);
       console.log(newResponse.events.event[i].description)
 
-      var eventButton = $("<button>").text("click to view event")
+      var eventButton = $("<button>").addClass('waves-effect waves-light btn-small').text("View Event")
       eventButton.attr("data-target=modal2")
       eventButton.attr("class=btn-hidden modal-trigger")
       eventButton.on("click",function(){$('#modal2').modal('open')})
       eventDiv.append(eventButton);
 
 
-      $("#free").append(eventDiv);
-
-
+      $("#event-div").append(eventDiv);
 
     }
-
-
-    // var $response = $(response);
-    // $response.find('event').each(function (index, event) {
-    //   var $event = $(event);
-    //   var title = $event.title.text();
-    //   var description = $event.description.html();
-    //   var start = $event.start_time.text();
-
-    // var eventDiv = $("<div>");
-    // for (i = 0; i < 25; i++) {
-    //   var eventTitle = $("<span>").text(title);
-    //   $(eventDiv).append(eventTitle);
-    //   var eventDescription = $("<span>").text(description);
-    //   $(eventDiv).append(eventDescription);
-    //   var eventStart = $("<span>").text(start);
-    //   $(eventDiv).append(eventStart);
-    // }
-    // $("#free").html(eventDiv);
-
-
-
-    // })
 
   });
 
 }
+
 
 
 

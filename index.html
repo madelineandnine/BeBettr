@@ -13,21 +13,21 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
 
-  <title>DayTrippr</title>
+  <title>BeeBettr</title>
 </head>
 
 <body>
 
   <div id="logo">
-    <h2>DayTrippr</h2>
-    <!-- <img src="images/daytrippr-logo.png" alt="image"> -->
+    <h2>
+      <img src="images/white-bee.png" alt="bee-image" id="bee-image"> BeeBettr</h2>
   </div>
 
   <!--Main Button-->
   <div class="valign-wrapper" id="start-button">
-    <button onclick="$('#modal1').modal('open')" data-target="modal1" class="waves-effect waves-light btn modal-trigger btn-large center-align hoverable">Plan A
-      <br>Perfect Day
-      <i class="material-icons">near_me</i>
+    <button onclick="$('#modal1').modal('open')" data-target="modal1" class="waves-effect waves-light btn modal-trigger btn-large center-align hoverable">help your community,
+      <br>change yourself
+      <i class="material-icons">event</i>
     </button>
   </div>
 
@@ -77,37 +77,37 @@
 
   <div id="your-day">
     <header>
+    
+          <nav>
+            <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
+            <div class="nav-wrapper" id="your-day-nav">
+              <a href="index.html" class="brand-logo">BeeBetter</a>
 
-      <nav>
-        <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
-        <div class="nav-wrapper" id="your-day-nav">
-          <a href="index.html" class="brand-logo">DayTrippr</a>
-
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li id="weather" class="weather-temp"></li>
-            <li id="weather" class="weather-desc"></li>
-            <li id="weather" class="weather-wind"></li>
-
-
-
-          </ul>
-        </div>
-      </nav>
-      <!-- Navbar ends here -->
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li id="weather" class="weather-temp"></li>
+                <li id="weather" class="weather-desc"></li>
+                <li id="weather" class="weather-wind"></li>
 
 
-      <main>
+
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <!-- Navbar ends here -->
+    <main>
         <div class="wrapper">
           <!-- Beginning of .page-wrapper -->
           <div class="row">
             <!-- Main Content Starts Here -->
-
-            <div class="col s4">
+  
+            <div class="col s12">
               <!-- First Column; Free-ish Events -->
-              <div class="collection with-header" id="free">
+              <div class="collection with-header" id="event-div">
+                <h3>Today's Events</h3>
                 <!-- Modal Trigger -->
                 <!-- <button onclick="$('#modal2').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button> -->
-
+  
                 <!-- Modal Structure -->
                 <div id="modal2" class="modal">
                   <div class="modal-content" id="modal2content">
@@ -128,191 +128,41 @@
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
                   </div>
                 </div>
-
-                <!-- <li class="collection-header"><h4>$-$$</h4></li>
-            <li class="collection-item avatar">
-              <img src="images/yuna.jpg" alt="image" class="circle">
-              <span class="title"></span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>
-            <li class="collection-item avatar">
-               <i class="material-icons circle black">event</i>
-              <span class="title"></span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle black">event</i>
-              <span class="title"></span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle black">event</i>
-              <span class="title">Event</span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>-->
-              </ul>
+              </div>
             </div>
-
-            <div class="col s4">
-              <!-- Second Column; Affordable Events -->
-              <ul class="collection with-header" id="cheap">
-
-                <!-- Modal Trigger -->
-                <button onclick="$('#modal3').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
-
-                <!-- Modal Structure -->
-                <div class="modal">
-                  <div class="modal-content" id="modal3content">
-                    <ul class="collection">
-                      <li class="collection-header">
-                        <h4>An Event!</h4>
-                      </li>
-                      <li class="collection-item avatar">
-                        <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                        <span class="title"></span>
-                        <p>Cost
-                          <br> Place/Time
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
-                  </div>
-                </div>
-                <!--        <li class="collection-header"><h4>$$-$$$</h4></li>
-          <li class="collection-item avatar">
-            <img src="images/yuna.jpg" alt="image" class="circle">
-            <span class="title">Event</span>
-            <p>Cost <br>
-               Place/Time
-            </p>
-          </li>
-          <li class="collection-item avatar">
-             <i class="material-icons circle black">event</i>
-            <span class="title">Event</span>
-            <p>Cost <br>
-               Place/Time
-            </p>
-          </li>
-          <li class="collection-item avatar">
-              <i class="material-icons circle black">event</i>
-            <span class="title">Event</span>
-            <p>Cost <br>
-               Place/Time
-            </p>
-          </li>
-          <li class="collection-item avatar">
-            <i class="material-icons circle black">event</i>
-            <span class="title">Event</span>
-            <p>Cost <br>
-               Place/Time
-            </p>>
-          </li> -->
-              </ul>
-            </div>
-
-            <div class="col s4">
-              <!-- Third Column; Pricey Events -->
-              <ul class="collection with-header" id="pricey">
-
-                <!-- Modal Trigger -->
-                <button onclick="$('#modal4').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button>
-
-                <!-- Modal Structure -->
-                <div class="modal">
-                  <div class="modal-content" id="modal4content">
-                    <ul>
-                      <li class="collection-header">
-                        <h4>An Event!</h4>
-                      </li>
-                      <li class="collection-item avatar">
-                        <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                        <span class="title"></span>
-                        <p>Cost
-                          <br> Place/Time
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
-                  </div>
-                </div>
-
-                <!--         <li class="collection-header"><h4>$$$-$$$$</h4></li>
-            <li class="collection-item avatar">
-              <img src="images/yuna.jpg" alt="image" class="circle">
-              <span class="title">Event</span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>
-            <li class="collection-item avatar">
-               <i class="material-icons circle black">event</i>
-              <span class="title">Event</span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle black">event</i>
-              <span class="title">Event</span>
-              <p>Cost <br>
-                 Place/Time
-              </p>>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle black">event</i>
-              <span class="title">Event</span>
-              <p>Cost <br>
-                 Place/Time
-              </p>
-  
-            </li> -->
-              </ul>
-            </div>
-
           </div>
         </div>
         <!-- End of .container -->
       </main>
-
-      <div id="your-day">
-        <footer class="page-footer">
-          <!-- Footer Starts Here -->
-
-
-          <div class="container">
-            <div class="row">
-              <div class="col l12 s12">
-                <div id="footerText">
-                  <h5 class="white-text left-align">Your Day</h5>
-                  <div class="divider white"></div>
-                  <ul id="events" class="collection"></ul>
+  
+      <footer class="page-footer">
+        <!-- Footer Starts Here -->
+  
+  
+        <div class="container">
+          <div class="row">
+            <div class="col l12 s12">
+              <div id="footerText">
+                <h5 class="white-text left-align">Your Day</h5>
+                <div class="divider white"></div>
+                <div id="events">
+                <ul class="collection"></ul>
                 </div>
               </div>
             </div>
           </div>
-        </footer>
-      </div>
-  </div>
-
-
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-  <script type="text/javascript" src="materialize.min.js"></script>
-  <script src="logic.js"></script>
-
-
-
-</body>
-
-</html>
+        </div>
+      </footer>
+  
+    </div>
+  
+  
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script type="text/javascript" src="materialize.min.js"></script>
+    <script src="logic.js"></script>
+  
+  
+  
+  </body>
+  
+  </html>

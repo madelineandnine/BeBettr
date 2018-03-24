@@ -35,6 +35,10 @@ main {
     text-align: center;
     margin-top: 175px; 
 }
+
+#bee-image{
+    width:10%;
+}
 /* Font Styling */
 h4, p {
     color: black;
@@ -54,7 +58,7 @@ h2 {
 }
 .btn-large {
     font-family: 'Hammersmith One', sans-serif;
-    font-size: 32px; 
+    font-size: 24px; 
     width: 400px;
     height: 80px; 
     vertical-align: -webkit-baseline-middle; 
@@ -138,6 +142,6 @@ h2 {
     padding: 5px; 
 }
 
-#free {
+#event-div {
     background-color: #cccccc; 
  }

@@ -144,4 +144,14 @@ h2 {
 
 #event-div {
     background-color: #cccccc; 
- }
+    #event-div {
+        background-color: rgb(245, 245, 245, 1);
+        padding: 10px; 
+        border-radius: 25px;
+    }
+    
+    .event-item {
+        padding: 5px; 
+    }
+    
+    

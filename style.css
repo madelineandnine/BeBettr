@@ -140,8 +140,19 @@ h2 {
 }
 #weather {
     padding: 5px; 
-}
-
+        padding: 10px; 
+    }
+    
 #free {
     background-color: #cccccc; 
-}
+    #event-div {
+        background-color: rgb(245, 245, 245, 1);
+        padding: 10px; 
+        border-radius: 25px;
+    }
+    
+    .event-item {
+        padding: 5px; 
+    }
+    
+    

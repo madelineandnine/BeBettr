@@ -13,21 +13,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
 
-  <title>DayTrippr</title>
+  <title>BeeBettr</title>
 </head>
 
 <body>
 
   <div id="logo">
-    <h2>DayTrippr</h2>
-    <!-- <img src="images/daytrippr-logo.png" alt="image"> -->
+    <h2>   <img src="images/white-bee.png" alt="bee-image" id="bee-image"> BeeBettr</h2>
   </div>
 
   <!--Main Button-->
   <div class="valign-wrapper" id="start-button">
-    <button onclick="$('#modal1').modal('open')" data-target="modal1" class="waves-effect waves-light btn modal-trigger btn-large center-align hoverable">Plan A
-      <br>Perfect Day
-      <i class="material-icons">near_me</i>
+    <button onclick="$('#modal1').modal('open')" data-target="modal1" class="waves-effect waves-light btn modal-trigger btn-large center-align hoverable">help your community, 
+      <br>change yourself
+      <i class="material-icons">event</i>    
     </button>
   </div>
 
@@ -76,7 +75,11 @@
 
 
   <div id="your-day">
-    <header>
+  <header>
+    <nav>
+      <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
+      <div class="nav-wrapper" id="your-day-nav">
+        <a href="index.html" class="brand-logo">DayTrippr</a>
 
       <nav>
         <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
@@ -95,6 +98,11 @@
       </nav>
       <!-- Navbar ends here -->
 
+        <div class="col s4">
+          <!-- First Column; Free-ish Events -->
+          <ul class="collection with-header" id="free">
+            <!-- Modal Trigger -->
+            <button onclick="$('#modal2').modal('open')" data-target="modal2" class="btn-hidden modal-trigger">Learn More</button>
 
       <main>
         <div class="wrapper">
@@ -291,22 +299,21 @@
           <!-- Footer Starts Here -->
 
 
-          <div class="container">
-            <div class="row">
-              <div class="col l12 s12">
-                <div id="footerText">
-                  <h5 class="white-text left-align">Your Day</h5>
-                  <div class="divider white"></div>
-                  <ul id="events" class="collection"></ul>
-                </div>
-              </div>
-            </div>
+      
+      <div class="container">
+      <div class="row">
+        <div class="col l12 s12">
+          <div id="footerText">
+              <h5 class="white-text left-align">Your Day</h5>
+              <div class="divider white"></div>
+              <div id="events" class="collection"></div>  
+                
           </div>
         </footer>
       </div>
   </div>
 
-
+  <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
   <script type="text/javascript" src="materialize.min.js"></script>
   <script src="logic.js"></script>

@@ -13,7 +13,7 @@ $('main').hide();
 
 
 
-$('.add-event').on('click', function () { 
+$('.add-event').on('click', function () {
   var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');
@@ -60,18 +60,18 @@ $(".modal-close").on("click", function () {
   console.log(zipCode);
 
   // getWeather();
-  
+
   // getEvents();
 
-  
-  
- // location.href = "your-day.html"
+
+
+  // location.href = "your-day.html"
 
   $("#start-button").hide();
 
 });
 
-$("#submit-button").on("click",function(){
+$("#submit-button").on("click", function () {
   $("#logo").hide();
   $("#start-button").hide();
 
@@ -108,9 +108,9 @@ function getWeather() {
     console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
     $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
-    
+
     $(".weather-desc").text("Description: " + todayWeatherdesc);
-  
+
     $(".weather-wind").text("Wind: " + todayWeatherwind);
 
   });
@@ -129,7 +129,7 @@ function getPlacesInfo() {
     url: eventsQueryURL,
     method: "GET"
   }).then(function (response) {
-    
+
     var $response = $(response);
     $response.find('event').each(function (index, event) {
       var $event = $(event);
@@ -153,19 +153,58 @@ function getEvents() {
     method: "GET",
     // dataType: 'JSON'
   }).then(function (response) {
-    
-    console.log(eventsQueryURL)
-    
+
+
+
     console.log(JSON.parse(response))
 
-    var newResponse=JSON.parse(response);
-    console.log(newResponse.events)
-    
-     
-       for(i=0;i<newResponse.events.event.length;i++){
-         console.log(newResponse.events.event[i].title)
-       }
-     
+    var newResponse = JSON.parse(response);
+
+
+
+
+
+    for (i = 0; i < newResponse.events.event.length; i++) {
+      console.log(newResponse.events.event[i].id)
+
+      var id = newResponse.events.event[i].id;
+      var eventsQueryURL = "https://api.eventful.com/json/events/get?id=" + id + "&app_key=JJR9n4PwkWr8G2dp";
+
+      $.ajax({
+        url: eventsQueryURL,
+        method: "GET",
+        dataType: 'JSON' 
+      }).then(function (response) {
+        console.log(response)
+        
+      
+      });
+
+
+
+
+      var eventDiv = $("<div>");
+
+      var eventTitle = $("<span>").text(newResponse.events.event[i].title);
+      eventDiv.append(eventTitle);
+      var eventDescription = $("<span>").html(newResponse.events.event[i].description);
+      eventDiv.append(eventDescription);
+      console.log(newResponse.events.event[i].description)
+
+      var eventButton = $("<button>").text("click to view event")
+      eventButton.attr("data-target=modal2")
+      eventButton.attr("class=btn-hidden modal-trigger")
+      eventButton.on("click",function(){$('#modal2').modal('open')})
+      eventDiv.append(eventButton);
+
+
+      $("#free").append(eventDiv);
+
+
+
+    }
+
+
     // var $response = $(response);
     // $response.find('event').each(function (index, event) {
     //   var $event = $(event);
@@ -173,52 +212,24 @@ function getEvents() {
     //   var description = $event.description.html();
     //   var start = $event.start_time.text();
 
-      // var eventDiv = $("<div>");
-      // for (i = 0; i < 25; i++) {
-      //   var eventTitle = $("<span>").text(title);
-      //   $(eventDiv).append(eventTitle);
-      //   var eventDescription = $("<span>").text(description);
-      //   $(eventDiv).append(eventDescription);
-      //   var eventStart = $("<span>").text(start);
-      //   $(eventDiv).append(eventStart);
-      // }
-      // $("#free").html(eventDiv);
+    // var eventDiv = $("<div>");
+    // for (i = 0; i < 25; i++) {
+    //   var eventTitle = $("<span>").text(title);
+    //   $(eventDiv).append(eventTitle);
+    //   var eventDescription = $("<span>").text(description);
+    //   $(eventDiv).append(eventDescription);
+    //   var eventStart = $("<span>").text(start);
+    //   $(eventDiv).append(eventStart);
+    // }
+    // $("#free").html(eventDiv);
 
 
-    
+
     // })
-    
+
   });
-  
+
 }
 
-
-function getEvents() {
-  var zip = $("#zipcode").val();
-  var eventsQueryURL = "https://api.eventful.com/rest/events/search?q=" + zip + "&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
-  
-  $.ajax({
-    url: eventsQueryURL,
-    method: "GET",
-    dataType: 'JSON'
-  }).then(function (response) {
-    console.log(response);
-    var $response = $(response);
-    $response.find('event').each(function (index, event) {
-      var $event = $(event);
-      var title = $event.title.text();
-      var description = $event.description.html();
-      var start = $event.start_time.text();
-
-      var eventDiv = $("<div>");
-      for (i = 0; i < 25; i++) {
-        var eventTitle = $("<span>").text(title);
-        $(eventDiv).append(eventTitle);
-        var eventDescription = $("<span>").text(description);
-        $(eventDiv).append(eventDescription);
-        var eventStart = $("<span>").text(start);
-        $(eventDiv).append(eventStart);
-}
-      $("#free").html(eventDiv);
 
 

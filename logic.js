@@ -2,18 +2,18 @@ $(document).ready(function () {
   $('#modal1').modal();
   $('#modal2').modal();
   $('.dropdown-trigger').dropdown();
-
+  $('footer').hide();
+  $('header').hide();
+  $('main').hide();
 
 });
 
 
-$('footer').hide();
-$('header').hide();
-$('main').hide();
 
 
 
-$('.add-event').on('click', function () {
+
+$('.add-event').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
   var modalcontent3 = $('#modal3');
   var modalcontent4 = $('#modal4');
@@ -61,9 +61,6 @@ $(".modal-close").on("click", function () {
   console.log(email);
   console.log(zipCode);
 
-  // getWeather();
-
-  // getEvents();
 
 
 
@@ -110,17 +107,47 @@ function getWeather() {
     console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
     $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
+    
     $(".weather-desc").text("Description: " + todayWeatherdesc);
+  
     $(".weather-wind").text("Wind: " + todayWeatherwind);
 
 
 	if (todayWeathertemp < 40) {
-    $(".nav-wrapper").css("background", "#1CA79A");
+		$(".nav-wrapper").css("background", "#1CA79A");
 	} 
 	else {
     $(".nav-wrapper").css("background", "#FFC719");
     $(".page-footer").css("background", "#FFC719");
-  }
+
+	}
+
+
+  });
+}
+
+
+
+var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
+
+
+function getPlacesInfo() {
+
+  var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
+
+  $.ajax({
+    url: eventsQueryURL,
+    method: "GET"
+  }).then(function (response) {
+
+    var $response = $(response);
+    $response.find('event').each(function (index, event) {
+      var $event = $(event);
+      var title = $event.find('title').text();
+      var description = $event.find('description').html();
+      var startTime = $event.find("start_time").text();
+
+    })
   });
 }
 

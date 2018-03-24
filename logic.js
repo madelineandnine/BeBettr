@@ -15,14 +15,12 @@ $(document).ready(function () {
 
 $('.add-event').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
-  var modalcontent3 = $('#modal3');
-  var modalcontent4 = $('#modal4');
+  
 
   
 
   $('#events').append(modal2content);
-  $("#events").append(modalcontent3);
-  $("#events").append(modalcontent4);
+  
 });
 
 
@@ -128,28 +126,6 @@ function getWeather() {
 
 
 
-var eventsQueryURL = "http://api.eventful.com/rest/events/search?...&location=San+Diego&app_key=JJR9n4PwkWr8G2dp";
-
-
-function getPlacesInfo() {
-
-  var placesQueryURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyB_ZFo0o7HLPDOUTX9KDXo77zEM9OtrDu8";
-
-  $.ajax({
-    url: eventsQueryURL,
-    method: "GET"
-  }).then(function (response) {
-
-    var $response = $(response);
-    $response.find('event').each(function (index, event) {
-      var $event = $(event);
-      var title = $event.find('title').text();
-      var description = $event.find('description').html();
-      var startTime = $event.find("start_time").text();
-
-    })
-  });
-}
 
 
 function getEvents() {
@@ -189,7 +165,12 @@ function getEvents() {
       var eventButton = $("<button>").addClass('waves-effect waves-light btn-small').text("View Event")
       eventButton.attr("data-target=modal2")
       eventButton.attr("class=btn-hidden modal-trigger")
-      eventButton.on("click",function(){$('#modal2').modal('open')})
+      eventButton.attr("data-event-id",i)
+      eventButton.on("click",function(){
+        $('#modal2').modal('open')
+        var id=$(this).attr("data-event-id")
+        $("#modal-event-title").text(newResponse.events.event[id].title)
+      })
       eventDiv.append(eventButton);
 
 

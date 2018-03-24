@@ -36,8 +36,8 @@ main {
     margin-top: 175px; 
 }
 
-#bee-image {
-    width: 10%; 
+#bee-image{
+    width:10%;
 }
 /* Font Styling */
 h4, p {
@@ -140,12 +140,9 @@ h2 {
 }
 #weather {
     padding: 5px; 
-        padding: 10px; 
-    }
-    
-#free {
-    background-color: #cccccc; 
 }
+
+
 
     #event-div {
         background-color: rgb(245, 245, 245, 1);

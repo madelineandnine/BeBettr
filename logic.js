@@ -196,7 +196,7 @@ function getEvents() {
 function getEvents() {
   var zip = $("#zipcode").val();
   var eventsQueryURL = "https://api.eventful.com/rest/events/search?q=" + zip + "&within=25&units=miles&app_key=JJR9n4PwkWr8G2dp";
-
+  
   $.ajax({
     url: eventsQueryURL,
     method: "GET",
@@ -218,7 +218,7 @@ function getEvents() {
         $(eventDiv).append(eventDescription);
         var eventStart = $("<span>").text(start);
         $(eventDiv).append(eventStart);
-      }
+}
       $("#free").html(eventDiv);
 
 

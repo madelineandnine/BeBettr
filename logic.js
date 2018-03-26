@@ -2,27 +2,25 @@ $(document).ready(function () {
   $('#modal1').modal();
   $('#modal2').modal();
   $('.dropdown-trigger').dropdown();
-
+  $('footer').hide();
+  $('header').hide();
+  $('main').hide();
 
 });
 
 
-$('footer').hide();
-$('header').hide();
-$('main').hide();
 
 
 
-$('.add-event').on('click', function () {
+
+$('.add-event').on('click', function () { 
   var modal2content = $('#modal2content').addClass('collection-item');
-  var modalcontent3 = $('#modal3');
-  var modalcontent4 = $('#modal4');
+  
 
   
 
   $('#events').append(modal2content);
-  $("#events").append(modalcontent3);
-  $("#events").append(modalcontent4);
+  
 });
 
 
@@ -61,9 +59,6 @@ $(".modal-close").on("click", function () {
   console.log(email);
   console.log(zipCode);
 
-  // getWeather();
-
-  // getEvents();
 
 
 
@@ -110,19 +105,27 @@ function getWeather() {
     console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
     $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
+    
     $(".weather-desc").text("Description: " + todayWeatherdesc);
+  
     $(".weather-wind").text("Wind: " + todayWeatherwind);
 
 
 	if (todayWeathertemp < 40) {
-    $(".nav-wrapper").css("background", "#1CA79A");
+		$(".nav-wrapper").css("background", "#1CA79A");
 	} 
 	else {
     $(".nav-wrapper").css("background", "#FFC719");
     $(".page-footer").css("background", "#FFC719");
-  }
+
+	}
+
+
   });
 }
+
+
+
 
 
 function getEvents() {
@@ -162,7 +165,12 @@ function getEvents() {
       var eventButton = $("<button>").addClass('waves-effect waves-light btn-small').text("View Event")
       eventButton.attr("data-target=modal2")
       eventButton.attr("class=btn-hidden modal-trigger")
-      eventButton.on("click",function(){$('#modal2').modal('open')})
+      eventButton.attr("data-event-id",i)
+      eventButton.on("click",function(){
+        $('#modal2').modal('open')
+        var id=$(this).attr("data-event-id")
+        $("#modal-event-title").text(newResponse.events.event[id].title)
+      })
       eventDiv.append(eventButton);
 
 

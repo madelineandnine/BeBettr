@@ -20,7 +20,7 @@
 
   <div id="logo">
     <h2>
-      <img src="images/white-bee.png" alt="bee-image" id="bee-image"> BeeBettr</h2>
+      <img src="images/bee.png" alt="bee-image" id="bee-image"> BeeBettr</h2>
   </div>
 
   <!--Main Button-->
@@ -90,79 +90,75 @@
 
 
 
-              </ul>
-            </div>
-          </nav>
+
+          </ul>
+        </div>
+      </nav>
     </header>
     <!-- Navbar ends here -->
+
+
     <main>
-        <div class="wrapper">
-          <!-- Beginning of .page-wrapper -->
-          <div class="row">
-            <!-- Main Content Starts Here -->
-  
-            <div class="col s12">
-              <!-- First Column; Free-ish Events -->
-              <div class="collection with-header" id="event-div">
-                <h3>Today's Events</h3>
-                <!-- Modal Trigger -->
-                <!-- <button onclick="$('#modal2').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button> -->
-  
-                <!-- Modal Structure -->
-                <div id="modal2" class="modal">
-                  <div class="modal-content" id="modal2content">
-                    <ul class="collection">
-                      <li class="collection-header">
-                        <h4>An Event!</h4>
-                      </li>
-                      <li class="collection-item avatar">
-                        <img src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                        <span class="title"></span>
-                        <p>Cost
-                          <br> Place/Time
-                        </p>
-                      </li>
-                    </ul>
+      <div class="wrapper">
+        <!-- Beginning of .page-wrapper -->
+        <div class="row">
+          <!-- Main Content Starts Here -->
+
+          <div class="col s12">
+            <!-- First Column; Free-ish Events -->
+            <div class="collection with-header" id="event-div">
+              <!-- Modal Trigger -->
+              <!-- <button onclick="$('#modal2').modal('open')" data-target="modal2" class="btn-hidden modal-trigger"></button> -->
+
+              <!-- Modal Structure -->
+              <div id="modal2" class="modal">
+                <div class="modal-content" id="modal2content">
+                  <div class="collection">
+                    
+                      <h4 class="collection-header"id="modal-event-title"></h4>
+                      <img class="collection-item avatar" id="modal-event-image" src="images/pexels-photo-196652.jpg" alt="image" class="circle">
+                      <span id="modal-event-description"></span>
+                      <span id="modal-event-address"></span>
+                    
                   </div>
-                  <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
-                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat add-event">Add Event</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- End of .container -->
-      </main>
-  
-      <footer class="page-footer">
-        <!-- Footer Starts Here -->
-  
-  
-        <div class="container">
-          <div class="row">
-            <div class="col l12 s12">
-              <div id="footerText">
-                <h5 class="white-text left-align">Your Day</h5>
-                <div class="divider white"></div>
-                <div id="events">
-                <ul class="collection"></ul>
-                </div>
-              </div>
+      </div>
+      <!-- End of .container -->
+    </main>
+
+    <footer class="page-footer">
+      <!-- Footer Starts Here -->
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col l12 s12">
+            <div id="footerText">
+              <h5 class="white-text left-align">Your Day</h5>
+              <div class="divider white"></div>
+              <ul id="events" class="collection"></ul>
             </div>
           </div>
         </div>
-      </footer>
-  
-    </div>
-  
-  
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script type="text/javascript" src="materialize.min.js"></script>
-    <script src="logic.js"></script>
-  
-  
-  
-  </body>
-  
-  </html>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script type="text/javascript" src="materialize.min.js"></script>
+  <script src="logic.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,160 +1,149 @@
 body {
-    background-image: url("images/city-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    width: 100%; 
-    
-    background-color: #cccccc; 
-    
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    }
-    
-    main {
-        width: 80%;
-        max-width: 960px;
-        margin: 0 auto;
-        flex: 1 0 auto;
-      }
-    
-    /* Logo/ Logo Image Styling */
-    .brand-logo {
-        font-family: 'Hammersmith One', sans-serif;
-    }
-    
-    .brand-logo {
-        /* Must change for mobile repsonsivenss- no longer centered) */
-        margin-left: 20px;
-        padding: 5px;
-    }
-    
-    #logo {
-        text-align: center;
-        margin-top: 175px; 
-    }
-    
-    #bee-image {
-        width: 10%; 
-    }
-    /* Font Styling */
-    h4, p {
-        color: black;
-        background-color: white;
-    }
-    
-    h2 {
-        font-family: 'Hammersmith One', sans-serif;
-        color: white;
-        size: 5rem;
-        letter-spacing: 3px;
-    }
-    
-    h3 {
-        font-family: 'Hammersmith One', sans-serif;
-        color: black;
-        size: 2rem;
-        letter-spacing: 3px;
-    }
-    
-    /* Buttons, Dividers, etc. Styling */
-    .divider {
-        margin-bottom: 10px;
-    }
-    .btn-large {
-        font-family: 'Hammersmith One', sans-serif;
-    font-size: 32px; 
-        font-size: 24px; 
-        width: 400px;
-        height: 80px; 
-        vertical-align: -webkit-baseline-middle; 
-        line-height: normal; 
-        left: 50%;
-        top: 50%;
-        margin-top: -15px;   
-        margin-left: -200px; 
-        position: fixed; 
-    }
-    
-    /* Nav Styling */
-    .nav-wrapper {
-        background-color: #1CA79A;
-    }
-    
-    
-    /* Layout Styling */
-    .wrapper {
-        width: 90%;
-        max-width: 960px;
-        margin: 0 auto;
-        margin-top: 30px;
-        background-color: whitesmoke;
-        border-radius: 25px;
-    }
-    
-    
-    .page-footer {
-        background-color: #1CA79A;
-        width: 100%;
-        margin: 0px;
-        padding: 10px;
-    }
-    
-    
-    
-    /* Collection Styling */
-    .collection {
-        display: inline-block;
-        margin: 0;
-        border: 0px;
-    }
-    
-    .collection-header {
-        text-align: center;
-    }
-    
-    
-    .collection .collection-item.avatar:not(.circle-clipper)>.circle,.collection .collection-item.avatar :not(.circle-clipper)>.circle {
-        position:absolute; 
-        width:100px;
-        height:100px;
-        overflow:hidden;
-        left:15px; 
-        display:inline-block; 
-        vertical-align:middle; 
-    }
-    
-    
-    .collection .collection-item.avatar {
-        min-height: 125px;
-        padding-left: 72px;
-        position: relative;
-    }
-    
-    
-    .collection .collection-item.avatar p {
-        margin-left: 55px;
-        margin-top: 15px;
-    }
-    
-    
-    /* Modal Styling */ 
-    .modal h4 {
-       margin-top:10px;
-    }
-    
-    #modal2content {
-        padding: 0;
-    }
-    #weather {
+background-image: url("images/city-background.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+width: 100%; 
+
+background-color: #cccccc; 
+
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+    width: 80%;
+    max-width: 960px;
+    margin: 0 auto;
+    flex: 1 0 auto;
+  }
+
+/* Logo/ Logo Image Styling */
+.brand-logo {
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.brand-logo {
+    /* Must change for mobile repsonsivenss- no longer centered) */
+    margin-left: 20px;
+    padding: 5px;
+}
+
+#logo {
+    text-align: center;
+    margin-top: 175px; 
+}
+
+#bee-image{
+    width:10%;
+}
+/* Font Styling */
+h4, p {
+    color: black;
+    background-color: white;
+}
+
+h2 {
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+    size: 5rem;
+    letter-spacing: 3px;
+}
+
+/* Buttons, Dividers, etc. Styling */
+.divider {
+    margin-bottom: 10px;
+}
+.btn-large {
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 24px; 
+    width: 400px;
+    height: 80px; 
+    vertical-align: -webkit-baseline-middle; 
+    line-height: normal; 
+    left: 50%;
+    top: 50%;
+    margin-top: -15px;   
+    margin-left: -200px; 
+    position: fixed; 
+}
+
+/* Nav Styling */
+.nav-wrapper {
+    background-color: #1CA79A;
+}
+
+
+/* Layout Styling */
+.wrapper {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+.page-footer {
+    background-color: #1CA79A;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+}
+
+
+
+/* Collection Styling */
+.collection {
+    display: inline-block;
+    margin: 0;
+    border: 0px;
+}
+
+.collection-header {
+    text-align: center;
+}
+
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle,.collection .collection-item.avatar :not(.circle-clipper)>.circle {
+    position:absolute; 
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    left:15px; 
+    display:inline-block; 
+    vertical-align:middle; 
+}
+
+
+.collection .collection-item.avatar {
+    min-height: 125px;
+    padding-left: 72px;
+    position: relative;
+}
+
+
+.collection .collection-item.avatar p {
+    margin-left: 55px;
+    margin-top: 15px;
+}
+
+
+/* Modal Styling */ 
+.modal h4 {
+   margin-top:10px;
+}
+
+#modal2content {
+    padding: 0;
+}
+#weather {
     padding: 5px; 
-        padding: 10px; 
-    }
-    
-#free {
-    background-color: #cccccc; 
+}
+
+
+
     #event-div {
         background-color: rgb(245, 245, 245, 1);
         padding: 10px; 

@@ -181,11 +181,11 @@ function getEvents() {
       });
       var eventDiv = $("<div>").addClass('event-item')
 
-      var eventTitle = $("<span>").text(newResponse.events.event[i].title);
+      var eventTitle = $("<span>").text(newResponse.events.event[i].title).addClass('event-title').append('</br>');
       eventDiv.append(eventTitle);
-      var eventDescription = $("<span>").html(newResponse.events.event[i].description);
+      var eventDescription = $("<span>").html(newResponse.events.event[i].description).addClass('event-description');
       eventDiv.append(eventDescription);
-      console.log(newResponse.events.event[i].description)
+      console.log(newResponse.events.event[i].description);
 
       var eventButton = $("<button>").addClass('waves-effect waves-light btn-small').text("View Event")
       eventButton.attr("data-target=modal2")

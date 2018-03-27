@@ -13,14 +13,14 @@ $(document).ready(function () {
 
 
 
-$('.add-event').on('click', function () { 
+$('.add-event').on('click', function () {
   var modal2content = $('#modal2content').addClass('collection-item');
-  
 
-  
+
+
 
   $('#events').append(modal2content);
-  
+
 });
 
 
@@ -39,52 +39,77 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-var firstName = "";
-var lastName = "";
-var email = "";
-var zipCode = $("#zipcode").val().trim();
+var firstName
+var lastName
+var email
+var zipCode
+var checkUsername
+var checkPassword
+var password
+var passwordConfrim
 
 $(".modal-close").on("click", function () {
+  event.preventDefault();
+
+  zipCode = $("#zipcode").val().trim();
+  checkUsername = $("#login-username").val().trim();
+  checkPassword = $("#login-password").val().trim();
+  console.log(checkUsername)
+  console.log(checkPassword)
+  
+
+  if (checkUsername == "") {
+    alert("Please enter a username")
+  } else {
+    database.ref('users').child(checkUsername).once("value").then(function (snapshot) {
+      if (snapshot.exists() && (checkPassword == snapshot.val().password)) {
+        console.log("ok")
+        $("#start-button").hide();
+        $('header').show();
+        $('footer').show();
+        $('main').show()
+        $("#logo").hide();
+        getWeather();
+        getEvents();
+        
+      } else {
+        alert("incorrect username or password. Please try again.")
+      }
+    })
+  }
+
+});
+
+$("#reg-button").on("click", function () {
 
   // Don't refresh the page!
   event.preventDefault();
 
+  username = $("#username").val().trim();
   firstName = $("#first_name").val().trim();
   lastName = $("#last_name").val().trim();
   email = $("#email").val().trim();
-  zipCode = $("#zipcode").val().trim();
+  password = $("#reg-password").val().trim();
+  passwordConfirm = $("#reg-password-confirm").val().trim();
 
-  console.log(firstName);
-  console.log(lastName);
-  console.log(email);
-  console.log(zipCode);
+  if (password == passwordConfirm) {
+    database.ref().child("users").child(username).set({ email: email, password: password, name: firstName + " " + lastName, dateAdded: firebase.database.ServerValue.TIMESTAMP, })
+    database.ref("users").child(username).once("value").then(function (snapshot) {
+      console.log(snapshot.val().username)
 
 
+    });
 
 
-  // location.href = "your-day.html"
+    alert("Registration complete! Please login to play!");
+  } else {
+    alert("Passwords do not match. Please try again");
+  }
 
-  $("#start-button").hide();
-
+  
 });
 
-$("#submit-button").on("click", function () {
-  $("#logo").hide();
-  $("#start-button").hide();
 
-  database.ref().push({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    zipCode: zipCode,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
-  });
-  getWeather();
-  getEvents();
-  $('header').show();
-  $("footer").show();
-  $('main').show()
-});
 
 
 function getWeather() {
@@ -105,20 +130,20 @@ function getWeather() {
     console.log(todayWeatherdesc, todayWeathertemp, todayWeatherwind)
 
     $(".weather-temp").text("Temp (f): " + todayWeathertemp + '\xB0');
-    
+
     $(".weather-desc").text("Description: " + todayWeatherdesc);
-  
+
     $(".weather-wind").text("Wind: " + todayWeatherwind);
 
 
-	if (todayWeathertemp < 40) {
-		$(".nav-wrapper").css("background", "#1CA79A");
-	} 
-	else {
-    $(".nav-wrapper").css("background", "#FFC719");
-    $(".page-footer").css("background", "#FFC719");
+    if (todayWeathertemp < 40) {
+      $(".nav-wrapper").css("background", "#1CA79A");
+    }
+    else {
+      $(".nav-wrapper").css("background", "#FFC719");
+      $(".page-footer").css("background", "#FFC719");
 
-	}
+    }
 
 
   });
@@ -149,27 +174,32 @@ function getEvents() {
       $.ajax({
         url: eventsQueryURL,
         method: "GET",
-        dataType: 'JSON' 
+        dataType: 'JSON'
       }).then(function (response) {
         console.log(response)
-        
+
       });
       var eventDiv = $("<div>").addClass('event-item')
 
-      var eventTitle = $("<span>").text(newResponse.events.event[i].title);
+      var eventTitle = $("<span>").text(newResponse.events.event[i].title).addClass('event-title').append('</br>');
       eventDiv.append(eventTitle);
-      var eventDescription = $("<span>").html(newResponse.events.event[i].description);
+      var eventDescription = $("<span>").html(newResponse.events.event[i].description).addClass('event-description');
       eventDiv.append(eventDescription);
-      console.log(newResponse.events.event[i].description)
+      console.log(newResponse.events.event[i].description);
 
       var eventButton = $("<button>").addClass('waves-effect waves-light btn-small').text("View Event")
       eventButton.attr("data-target=modal2")
       eventButton.attr("class=btn-hidden modal-trigger")
-      eventButton.attr("data-event-id",i)
-      eventButton.on("click",function(){
+      eventButton.attr("data-event-id", i)
+      eventButton.on("click", function () {
         $('#modal2').modal('open')
-        var id=$(this).attr("data-event-id")
+        var id = $(this).attr("data-event-id")
         $("#modal-event-title").text(newResponse.events.event[id].title)
+        // $("#modal-event-image").attr("src", newResponse.events.event[id].image)
+        $("#modal-event-description").html(newResponse.events.event[id].description)
+        $("#modal-event-address").text(newResponse.events.event[id].address)
+        console.log(newResponse.events.event[id].address)
+
       })
       eventDiv.append(eventButton);
 

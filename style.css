@@ -84,7 +84,6 @@ h2 {
     margin-top: 30px;
 }
 
-
 .page-footer {
     background-color: #1CA79A;
     width: 100%;
@@ -94,7 +93,7 @@ h2 {
 
 
 
-/* Collection Styling */
+/* Collection (Events) Styling */
 .collection {
     display: inline-block;
     margin: 0;
@@ -106,23 +105,17 @@ h2 {
 }
 
 
-.collection .collection-item.avatar:not(.circle-clipper)>.circle,.collection .collection-item.avatar :not(.circle-clipper)>.circle {
-    position:absolute; 
-    width:100px;
-    height:100px;
-    overflow:hidden;
-    left:15px; 
-    display:inline-block; 
-    vertical-align:middle; 
+.collection .collection-item {
+    line-height: 1.5rem;
+    padding: 0px;
+    margin: 0;
 }
 
 
-.collection .collection-item.avatar {
-    min-height: 125px;
-    padding-left: 72px;
-    position: relative;
+/* Overwriting Materialize Collection (list) Framework */
+.collection.with-header .collection-item.avatar {
+    padding-left:15px;
 }
-
 
 .collection .collection-item.avatar p {
     margin-left: 55px;
@@ -132,29 +125,50 @@ h2 {
 
 /* Modal Styling */ 
 .modal h4 {
-   margin-top:10px;
+    margin-top:20px;
+}
+
+.modal img {
+    width: 100px;
+    padding-left: 30px;
+
+ }
+
+.modal-content {
+    height: auto;
 }
 
 #modal2content {
     padding: 0;
 }
+
 #weather {
     padding: 5px; 
-        padding: 10px; 
-    }
+    padding: 10px; 
+}
     
 #free {
     background-color: #cccccc; 
 }
+
+#modal-event-title {
+    background-color: #fafafa;
+}
    
-    #event-div {
-        background-color: rgb(245, 245, 245);
-        padding: 10px; 
-        border-radius: 25px;
-    }
+/* Events List Sytling */
+#event-div {
+    background-color: rgb(245, 245, 245);
+    padding: 10px; 
+    border-radius: 25px;
+}
     
-    .event-item {
-        padding: 5px; 
-    }
+.event-item {
+    padding: 5px; 
+    border-bottom: dashed 1px black;
+    margin-bottom: 10px;
+}
     
+.event-title {
+    font-size: 1.5em;
+}
     

@@ -13,13 +13,13 @@ $(document).ready(function () {
 
 
 
+
+
 $('.add-event').on('click', function () {
   var modal2content = $('#modal2content').addClass('collection-item');
 
-
-
-
   $('#events').append(modal2content);
+  getEvents();
 
 });
 
@@ -73,7 +73,7 @@ $(".modal-close").on("click", function () {
         getEvents();
         
       } else {
-        alert("incorrect username or password. Please try again.")
+        alert("Incorrect username or password. Please try again.")
       }
     })
   }
@@ -96,12 +96,8 @@ $("#reg-button").on("click", function () {
     database.ref().child("users").child(username).set({ email: email, password: password, name: firstName + " " + lastName, dateAdded: firebase.database.ServerValue.TIMESTAMP, })
     database.ref("users").child(username).once("value").then(function (snapshot) {
       console.log(snapshot.val().username)
-
-
     });
-
-
-    alert("Registration complete! Please login to play!");
+    alert("Registration complete! Please login!");
   } else {
     alert("Passwords do not match. Please try again");
   }
@@ -141,7 +137,10 @@ function getWeather() {
     }
     else {
       $(".nav-wrapper").css("background", "#FFC719");
+      $(".nav-wrapper").css("color", "black");
       $(".page-footer").css("background", "#FFC719");
+      $(".page-footer").css("color", "black");
+
 
     }
 
@@ -179,7 +178,7 @@ function getEvents() {
         console.log(response)
 
       });
-      var eventDiv = $("<div>").addClass('event-item')
+      var eventDiv = $("<div>").addClass('event-item').attr('id', 'event' + [i])
 
       var eventTitle = $("<span>").text(newResponse.events.event[i].title).addClass('event-title').append('</br>');
       eventDiv.append(eventTitle);
@@ -198,7 +197,7 @@ function getEvents() {
         // $("#modal-event-image").attr("src", newResponse.events.event[id].image)
         $("#modal-event-description").html(newResponse.events.event[id].description)
         $("#modal-event-address").text(newResponse.events.event[id].address)
-        console.log(newResponse.events.event[id].address)
+        console.log(newResponse.events.event[id])
 
       })
       eventDiv.append(eventButton);

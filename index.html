@@ -32,26 +32,22 @@
   </div>
 
   <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
+  <div id="modal1" class="modal">
     <div class="modal-content">
-      <h5>Tell us a little about yourself...</h5>
+      <h5>Enter your login info and zipcode...</h5>
       <form>
         <div class="row">
           <form class="col s12">
             <div class="row">
-              <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
+              <div class="input-field col s12">
+                <input id="login-username" type="text" class="validate">
+                <label for="login-username">Username</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+                <input id="login-password" type="text" class="validate">
+                <label for="login-password">Password</label>
               </div>
             </div>
             <div class="row">
@@ -60,13 +56,50 @@
                 <label for="zipcode">Zip Code</label>
               </div>
             </div>
+            <button id="submit-button" class="modal-action modal-close waves-effect waves-green btn-flat">Sign in</button>
 
-          </form>
-          <div class="modal-footer">
-            <button id="submit-button" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</button>
-          </div>
+            <h5>First time here? Tell us a little about yourself...</h5>
+            <form>
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="username" type="text" class="validate">
+                      <label for="username">Username</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="last_name" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="reg-password" type="text" class="validate">
+                      <label for="reg-password">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="reg-password-confirm" type="text" class="validate">
+                      <label for="reg-password-confirm">Confirm Password</label>
+                    </div>
+                  </div>
+                  <button id="reg-button" class="waves-effect waves-green btn-flat">Sign up</button>
+                </form>
+              </div>
         </div>
-
     </div>
   </div>
 
@@ -77,16 +110,16 @@
 
   <div id="your-day">
     <header>
-    
-          <nav>
-            <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
-            <div class="nav-wrapper" id="your-day-nav">
-              <a href="index.html" class="brand-logo">BeeBetter</a>
 
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li id="weather" class="weather-temp"></li>
-                <li id="weather" class="weather-desc"></li>
-                <li id="weather" class="weather-wind"></li>
+      <nav>
+        <!-- Navbar starts here // IDEA: Color Reflects the weather? Add Javascript!!!-->
+        <div class="nav-wrapper" id="your-day-nav">
+          <a href="index.html" class="brand-logo">BeeBetter</a>
+
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li id="weather" class="weather-temp"></li>
+            <li id="weather" class="weather-desc"></li>
+            <li id="weather" class="weather-wind"></li>
 
 
 
@@ -114,12 +147,12 @@
               <div id="modal2" class="modal">
                 <div class="modal-content" id="modal2content">
                   <div class="collection">
-                    
-                      <h4 class="collection-header"id="modal-event-title"></h4>
-                      <img class="collection-item avatar" id="modal-event-image" src="images/pexels-photo-196652.jpg" alt="image" class="circle">
-                      <span id="modal-event-description"></span>
-                      <span id="modal-event-address"></span>
-                    
+
+                    <h4 class="collection-header" id="modal-event-title"></h4>
+                    <!-- <img class="collection-item avatar" id="modal-event-image" src="" alt="image" class="circle"> -->
+                    <span id="modal-event-description"></span>
+                    <span id="modal-event-address"></span>
+
                   </div>
                 </div>
                 <div class="modal-footer">
